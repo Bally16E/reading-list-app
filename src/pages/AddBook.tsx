@@ -137,13 +137,12 @@ export default function AddBook() {
             {imageDataUrl ? (
               <img src={imageDataUrl} alt="表紙プレビュー" className="w-full h-full object-cover" />
             ) : (
-              <span className="text-neutral-400 text-sm px-4 text-center">タップして表紙を撮影</span>
+              <span className="text-neutral-400 text-sm px-4 text-center">タップして表紙を撮影・選択</span>
             )}
           </div>
           <input
             type="file"
             accept="image/*"
-            capture="environment"
             className="hidden"
             onChange={handleFileChange}
           />
