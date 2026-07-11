@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { recognizeCoverImage } from '../src/server/recognizeCover'
+import { recognizeCoverImage } from '../src/server/recognizeCover.ts'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {

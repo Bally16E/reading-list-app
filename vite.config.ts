@@ -2,7 +2,7 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import { recognizeCoverImage } from './src/server/recognizeCover'
+import { recognizeCoverImage } from './src/server/recognizeCover.ts'
 
 // Emulates the /api/recognize-cover Vercel function during local development,
 // so the same endpoint works both with `npm run dev` and once deployed.
