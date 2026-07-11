@@ -69,6 +69,7 @@ export default function AddBook() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [status, setStatus] = useState<BookStatus>('tsundoku')
+  const [notes, setNotes] = useState('')
   const [recordDate, setRecordDate] = useState(todayDateString())
   const [saving, setSaving] = useState(false)
   const [recognizing, setRecognizing] = useState(false)
@@ -106,6 +107,7 @@ export default function AddBook() {
         author: author.trim(),
         status,
         coverImage: imageDataUrl,
+        notes: notes.trim(),
         recordDate,
         createdAt: Date.now(),
         updatedAt: Date.now(),
@@ -177,6 +179,17 @@ export default function AddBook() {
             value={recordDate}
             onChange={(e) => setRecordDate(e.target.value)}
             className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-neutral-600 mb-1">感想</label>
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            rows={5}
+            placeholder="感想を入力(キーボードのマイクボタンで音声入力もできます)"
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900 resize-y"
           />
         </div>
 
