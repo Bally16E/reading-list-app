@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addBook, generateId, type Book, type BookStatus } from '../lib/db'
+import { addBook, generateId, todayDateString, type Book, type BookStatus } from '../lib/db'
 
 const STATUSES: { key: BookStatus; label: string }[] = [
   { key: 'tsundoku', label: '積読' },
@@ -69,6 +69,7 @@ export default function AddBook() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [status, setStatus] = useState<BookStatus>('tsundoku')
+  const [recordDate, setRecordDate] = useState(todayDateString())
   const [saving, setSaving] = useState(false)
   const [recognizing, setRecognizing] = useState(false)
   const [error, setError] = useState('')
@@ -105,6 +106,7 @@ export default function AddBook() {
         author: author.trim(),
         status,
         coverImage: imageDataUrl,
+        recordDate,
         createdAt: Date.now(),
         updatedAt: Date.now(),
       }
@@ -164,6 +166,16 @@ export default function AddBook() {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             placeholder="未入力"
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-neutral-600 mb-1">登録日</label>
+          <input
+            type="date"
+            value={recordDate}
+            onChange={(e) => setRecordDate(e.target.value)}
             className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900"
           />
         </div>

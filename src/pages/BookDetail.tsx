@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getAllBooks, updateBook, deleteBook, type Book, type BookStatus } from '../lib/db'
+import { getAllBooks, updateBook, deleteBook, formatDateString, type Book, type BookStatus } from '../lib/db'
 
 const STATUSES: { key: BookStatus; label: string }[] = [
   { key: 'tsundoku', label: '積読' },
@@ -16,6 +16,7 @@ export default function BookDetail() {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [notes, setNotes] = useState('')
+  const [recordDate, setRecordDate] = useState('')
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
   const [savedMessage, setSavedMessage] = useState(false)
@@ -31,6 +32,7 @@ export default function BookDetail() {
       setTitle(found.title)
       setAuthor(found.author)
       setNotes(found.notes ?? '')
+      setRecordDate(found.recordDate ?? formatDateString(new Date(found.createdAt)))
     })
   }, [id])
 
@@ -53,7 +55,7 @@ export default function BookDetail() {
     if (showConfirmation) setSaving(true)
     setError('')
     try {
-      await updateBook(book.id, { title: title.trim(), author: author.trim(), notes })
+      await updateBook(book.id, { title: title.trim(), author: author.trim(), notes, recordDate })
       if (showConfirmation) {
         setSavedMessage(true)
         setTimeout(() => setSavedMessage(false), 2000)
@@ -122,6 +124,17 @@ export default function BookDetail() {
             rows={5}
             placeholder="感想を入力(キーボードのマイクボタンで音声入力もできます)"
             className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900 resize-y"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-neutral-600 mb-1">登録日</label>
+          <input
+            type="date"
+            value={recordDate}
+            onChange={(e) => setRecordDate(e.target.value)}
+            onBlur={() => handleSaveText()}
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 text-neutral-900"
           />
         </div>
 

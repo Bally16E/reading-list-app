@@ -9,8 +9,22 @@ export interface Book {
   status: BookStatus
   coverImage: string
   notes?: string
+  recordDate: string
   createdAt: number
   updatedAt: number
+}
+
+// Formats a Date as YYYY-MM-DD in the local timezone (not UTC, so it matches
+// the user's actual calendar day near midnight).
+export function formatDateString(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
+export function todayDateString(): string {
+  return formatDateString(new Date())
 }
 
 const BOOKS_KEY = 'books'
