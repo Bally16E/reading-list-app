@@ -1,5 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#2563eb"/>
-  <path d="M256 160c-32-24-80-32-128-24v224c48-8 96 0 128 24 32-24 80-32 128-24V136c-48-8-96 0-128 24z" fill="none" stroke="#ffffff" stroke-width="20" stroke-linejoin="round"/>
-  <line x1="256" y1="160" x2="256" y2="384" stroke="#ffffff" stroke-width="20"/>
+  <rect width="512" height="512" rx="120" fill="#FFD6E8"/>
+
+  <!-- sparkles -->
+  <path d="M400 110l7 16 16 7-16 7-7 16-7-16-16-7 16-7z" fill="#FFEC99"/>
+  <path d="M96 360l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#FFEC99"/>
+
+  <!-- open book -->
+  <path
+    d="M256 208c-46-34-112-44-172-33v226c60-11 126-1 172 33
+       46-34 112-44 172-33V175c-60-11-126-1-172 33z"
+    fill="#FFFBF6"
+    stroke="#FF9EC0"
+    stroke-width="16"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <line x1="256" y1="208" x2="256" y2="434" stroke="#FF9EC0" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- page lines -->
+  <path d="M124 216c34-8 68-8 96 2" stroke="#FFC7DD" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M124 246c34-8 68-8 96 2" stroke="#FFC7DD" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M292 218c28-10 62-10 96-2" stroke="#FFC7DD" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M292 248c28-10 62-10 96-2" stroke="#FFC7DD" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- cute face -->
+  <circle cx="222" cy="290" r="11" fill="#5B4B49"/>
+  <circle cx="290" cy="290" r="11" fill="#5B4B49"/>
+  <circle cx="198" cy="313" r="13" fill="#FF9EC0" opacity="0.6"/>
+  <circle cx="314" cy="313" r="13" fill="#FF9EC0" opacity="0.6"/>
+  <path d="M238 308q18 16 36 0" stroke="#5B4B49" stroke-width="7" fill="none" stroke-linecap="round"/>
 </svg>
