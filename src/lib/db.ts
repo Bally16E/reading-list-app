@@ -1,6 +1,6 @@
 import { get, set } from 'idb-keyval'
 
-export type BookStatus = 'tsundoku' | 'reading' | 'finished'
+export type BookStatus = 'wantToRead' | 'tsundoku' | 'reading' | 'finished'
 
 export interface Book {
   id: string

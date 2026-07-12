@@ -4,6 +4,7 @@ import { getAllBooks, type Book, type BookStatus } from '../lib/db'
 import BookCard from '../components/BookCard'
 
 const TABS: { key: BookStatus; label: string }[] = [
+  { key: 'wantToRead', label: '読みたい' },
   { key: 'tsundoku', label: '積読' },
   { key: 'reading', label: '読んでいる' },
   { key: 'finished', label: '読了' },
